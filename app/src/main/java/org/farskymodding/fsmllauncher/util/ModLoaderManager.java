@@ -19,7 +19,7 @@ public class ModLoaderManager {
         );
 
         remoteFiles = Map.of(
-            "fsml.jar", "http://localhost/fsml.jar",//"https://github.com/farskymodding/fsml/releases/latest/fsml.jar"
+            "fsml.jar", "https://github.com/farskymodding/fsml/releases/latest/fsml.jar",
             
             "byte-buddy.jar", "https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy/1.14.3/byte-buddy-1.14.3.jar",
             "byte-buddy-agent.jar", "https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy-agent/1.14.3/byte-buddy-agent-1.14.3.jar"
