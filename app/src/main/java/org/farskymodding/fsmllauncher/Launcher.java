@@ -1,22 +1,22 @@
 package org.farskymodding.fsmllauncher;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.io.IOException;
+//import java.awt.Dimension;
+//import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTextPane;
 import javax.swing.Timer;
 
 public class Launcher {
    public JFrame frame;
    public static JButton playButton;
    private static JButton quitButton;
-   private static JTextPane webNews;
+   //private static JTextPane webNews;
    private static Thread updaterThread;
    private static JButton optionButton;
    private static Option optionsDialog;
@@ -40,8 +40,8 @@ public class Launcher {
       this.frame = new JFrame();
       this.frame.getContentPane().setBackground(Color.BLACK);
       this.frame.setTitle("FarSky Launcher");
-      ImageIcon var1 = new ImageIcon(this.getClass().getResource("/res/icon.png"));
-      this.frame.setIconImage(var1.getImage());
+      ImageIcon icon = new ImageIcon(this.getClass().getResource("/res/icon.png"));
+      this.frame.setIconImage(icon.getImage());
       this.frame.setResizable(false);
       this.frame.setBounds(100, 100, 700, 500);
       this.frame.setDefaultCloseOperation(3);
@@ -49,6 +49,8 @@ public class Launcher {
       this.frame.setLocationRelativeTo(null);
       this.frame.setUndecorated(true);
 
+      // TODO: Recreate updates channel
+      /* 
       webNews = new JTextPane();
       webNews.setForeground(Color.BLACK);
       webNews.setEditable(false);
@@ -72,6 +74,7 @@ public class Launcher {
       webNewsPane.setBorder(null);
       webNewsPane.getVerticalScrollBar().setPreferredSize(new Dimension(0, 0));
       this.frame.getContentPane().add(webNewsPane);
+      */
 
       playButton = new JButton(new ImageIcon(this.getClass().getResource("/res/playButton.png")));
       playButton.setRolloverIcon(new ImageIcon(this.getClass().getResource("/res/playButtonHover.png")));

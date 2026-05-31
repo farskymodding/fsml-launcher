@@ -6,10 +6,9 @@ import javax.swing.UIManager;
 
 import org.farskymodding.fsmllauncher.util.FilePath;
 import org.farskymodding.fsmllauncher.util.InfoSystem;
+import org.farskymodding.fsmllauncher.util.ModLoaderManager;
 
 public class Main {
-
-    
 
     public static void main(String[] var0) {
         try {
@@ -19,6 +18,7 @@ public class Main {
         }
 
         FilePath.init();
+        ModLoaderManager.init();
         InfoSystem.print();
         EventQueue.invokeLater(new Runnable() {
             @Override

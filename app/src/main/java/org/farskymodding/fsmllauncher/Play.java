@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Play {
    public static void launchGame() {
-      Process game = null;
       ArrayList<String> gameArgs = new ArrayList<>();
       String fileSeperator = System.getProperty("file.separator");
 
@@ -26,7 +25,6 @@ public class Play {
                gameArgs.add("." + fileSeperator + "farsky.jar");
                gameArgs.add("-classpath");
                gameArgs.add("." + fileSeperator + "lib" + fileSeperator + "*:." + fileSeperator + "farsky.jar");
-               gameArgs.add("game.Main");
                break;
             case MAC:
                String launcherJar = new File(System.getProperty("java.class.path")).getAbsolutePath();
@@ -44,7 +42,6 @@ public class Play {
                gameArgs.add("" + gameRootDir + fileSeperator + "farsky.jar");
                gameArgs.add("-classpath");
                gameArgs.add("" + gameRootDir + fileSeperator + "lib" + fileSeperator + "*:" + gameRootDir + fileSeperator + "farsky.jar");
-               gameArgs.add("game.Main");
                break;
             case WINDOWS:
                gameArgs.add(Option.javaPath);
@@ -59,13 +56,19 @@ public class Play {
                gameArgs.add("." + fileSeperator + "farsky.jar");
                gameArgs.add("-classpath");
                gameArgs.add("." + fileSeperator + "lib" + fileSeperator + "*;." + fileSeperator + "farsky.jar");
-               gameArgs.add("game.Main");
+         }
+
+         if (Option.enableModLoader) {
+            gameArgs.add("org.farskymodding.fsml.Loader");
+         } else {
+            gameArgs.add("game.Main");
          }
 
          gameArgs.add("-param");
          gameArgs.addAll(Option.args);
          gameArgs.add("-path:" + FilePath.gameDirectory);
          gameArgs.add("-logPath:" + FilePath.logDirectory);
+
          System.out.println("*************** PLAY COMMAND ****************");
 
          for (int i = 0; i < gameArgs.size(); i++) {
@@ -73,7 +76,7 @@ public class Play {
          }
 
          System.out.println("*********************************************");
-         game = Runtime.getRuntime().exec(arrayListToArray(gameArgs));
+         Runtime.getRuntime().exec(arrayListToArray(gameArgs));
       } catch (IOException ioe) {
          ioe.printStackTrace();
       }
